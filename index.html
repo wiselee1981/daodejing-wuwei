@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>无为而治 · 道德经互动课堂</title>
+<meta name="description" content="用互动动画一步步看懂《道德经》的无为而治：大禹治水、文景之治、萧规曹随……傻子也能看懂。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23f6f1e3' stroke='%2326221b' stroke-width='4'/%3E%3Cpath d='M50 4a46 46 0 0 1 0 92 23 23 0 0 1 0 -46 23 23 0 0 0 0 -46z' fill='%2326221b'/%3E%3Ccircle cx='50' cy='27' r='7' fill='%2326221b'/%3E%3Ccircle cx='50' cy='73' r='7' fill='%23f6f1e3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- 阅读进度条 -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- 顶部迷你导航 -->
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <span class="brand">☯ 无为而治</span>
+    <nav class="step-dots" id="stepDots" aria-label="章节导航"></nav>
+    <span class="step-counter" id="stepCounter">0 / 8</span>
+  </div>
+</header>
+
+<!-- ============ 开场 HERO ============ -->
+<section class="hero" id="hero">
+  <div class="mountains" aria-hidden="true">
+    <svg class="mountain m3" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0 320 L0 200 L160 90 L330 210 L520 70 L700 220 L880 100 L1060 230 L1240 120 L1440 210 L1440 320 Z"/>
+    </svg>
+    <svg class="mountain m2" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0 320 L0 250 L180 160 L360 260 L560 130 L760 250 L960 170 L1160 260 L1340 180 L1440 250 L1440 320 Z"/>
+    </svg>
+    <svg class="mountain m1" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0 320 L0 280 L220 210 L440 290 L680 190 L920 290 L1180 220 L1440 280 L1440 320 Z"/>
+    </svg>
+  </div>
+
+  <div class="ink-dots" aria-hidden="true">
+    <span class="ink i1"></span><span class="ink i2"></span><span class="ink i3"></span>
+    <span class="ink i4"></span><span class="ink i5"></span>
+  </div>
+
+  <div class="hero-content">
+    <div class="taiji-wrap">
+      <svg class="taiji" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="50" fill="var(--paper)"/>
+        <path d="M50 0a50 50 0 0 1 0 100 25 25 0 0 1 0 -50 25 25 0 0 0 0 -50z" fill="var(--ink)"/>
+        <circle cx="50" cy="25" r="7" fill="var(--ink)"/>
+        <circle cx="50" cy="75" r="7" fill="var(--paper)"/>
+      </svg>
+      <div class="taiji-halo"></div>
+    </div>
+    <p class="hero-kicker">老子 ·《道德经》· 一次看懂</p>
+    <h1 class="hero-title">無為而治</h1>
+    <p class="hero-sub">什么也不瞎折腾，天下反而自己变好了？</p>
+    <p class="hero-hint">往下滑，一步一步看懂这套「最省力的治国大智慧」<br>（还能自己动手玩）</p>
+    <div class="scroll-arrow" aria-hidden="true"><span></span></div>
+  </div>
+</section>
+
+<main>
+
+  <!-- ============ 第一章：破误区 ============ -->
+  <section class="chapter" id="step1" data-step="1">
+    <div class="chapter-head reveal">
+      <span class="ghost-num">壹</span>
+      <h2>先破个误会：无为 ≠ 躺平</h2>
+      <p class="lead">很多人一听「无为」就以为是啥也不干。先来翻三张牌，看看你中招没有 ↓</p>
+    </div>
+
+    <div class="myth-cards reveal">
+      <div class="myth-card" tabindex="0" role="button" aria-label="误区卡片：无为是躺平摆烂，点击翻面">
+        <div class="card-face card-front">
+          <span class="myth-badge">误区①</span>
+          <p class="myth-say">无为 =<br>躺平摆烂</p>
+          <span class="flip-hint">点我翻面 ↻</span>
+        </div>
+        <div class="card-face card-back">
+          <span class="truth-badge">真相 ✔</span>
+          <p class="truth-say"><strong>不是躺平，是不瞎折腾。</strong><br>老子说「为无为，事无事」——该干的照样干，只是不违背规律硬来。</p>
+          <span class="src-tag">《道德经》第63章</span>
+        </div>
+      </div>
+
+      <div class="myth-card" tabindex="0" role="button" aria-label="误区卡片：无为是啥都不管，点击翻面">
+        <div class="card-face card-front">
+          <span class="myth-badge">误区②</span>
+          <p class="myth-say">无为 =<br>啥都不管</p>
+          <span class="flip-hint">点我翻面 ↻</span>
+        </div>
+        <div class="card-face card-back">
+          <span class="truth-badge">真相 ✔</span>
+          <p class="truth-say"><strong>不是不管，是定好规矩、少去打扰。</strong><br>老子说「治大国若烹小鲜」——小鱼不能老翻，国家不能天天折腾。</p>
+          <span class="src-tag">《道德经》第60章</span>
+        </div>
+      </div>
+
+      <div class="myth-card" tabindex="0" role="button" aria-label="误区卡片：无为是消极认命，点击翻面">
+        <div class="card-face card-front">
+          <span class="myth-badge">误区③</span>
+          <p class="myth-say">无为 =<br>消极认命</p>
+          <span class="flip-hint">点我翻面 ↻</span>
+        </div>
+        <div class="card-face card-back">
+          <span class="truth-badge">真相 ✔</span>
+          <p class="truth-say"><strong>恰恰相反，是主动按规律办事。</strong><br>老子说「为之于未有，治之于未乱」——事情还没发生就准备好，乱子没起来就防住。</p>
+          <span class="src-tag">《道德经》第64章</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-definition reveal" id="definitionReveal">
+      <p class="def-label">一句话记住</p>
+      <p class="def-text">无为 = <em>不妄为</em> · <em>不折腾</em> · <em>顺着规律来</em></p>
+      <p class="def-note">该疏的水要疏，该立的法要立——「无为」说的是不违背规律乱来，不是袖手旁观。</p>
+    </div>
+  </section>
+
+  <!-- ============ 第二章：烹小鲜 ============ -->
+  <section class="chapter chapter-alt" id="step2" data-step="2">
+    <div class="chapter-head reveal">
+      <span class="ghost-num">贰</span>
+      <h2>经典比喻：治大国，若烹小鲜</h2>
+      <p class="lead">老子把治国比作「煎小鱼」。来，你当一回厨师，亲手试试两种做法 ↓</p>
+    </div>
+
+    <div class="kitchen reveal">
+      <div class="wok-scene" aria-label="煎鱼小实验">
+        <svg class="wok-svg" viewBox="0 0 520 300">
+          <!-- 锅 -->
+          <ellipse class="wok-body" cx="260" cy="235" rx="200" ry="30"/>
+          <path class="wok-bowl" d="M60 235 Q60 300 260 300 Q460 300 460 235"/>
+          <path class="wok-handle" d="M60 235 L18 205"/>
+          <!-- 油 -->
+          <ellipse class="wok-oil" cx="260" cy="230" rx="150" ry="18"/>
+          <!-- 三条小鱼 -->
+          <g class="fish fish1" transform="translate(160,222)">
+            <ellipse rx="42" ry="15" fill="#8b8b8b"/>
+            <path d="M-42 0 L-60 -14 L-52 0 L-60 14 Z" fill="#8b8b8b"/>
+            <circle cx="26" cy="-4" r="2.6" fill="#222"/>
+          </g>
+          <g class="fish fish2" transform="translate(300,228) rotate(8)">
+            <ellipse rx="42" ry="15" fill="#7d7d7d"/>
+            <path d="M-42 0 L-60 -14 L-52 0 L-60 14 Z" fill="#7d7d7d"/>
+            <circle cx="26" cy="-4" r="2.6" fill="#222"/>
+          </g>
+          <g class="fish fish3" transform="translate(390,220) rotate(-10)">
+            <ellipse rx="36" ry="13" fill="#9a9a9a"/>
+            <path d="M-36 0 L-52 -12 L-45 0 L-52 12 Z" fill="#9a9a9a"/>
+            <circle cx="22" cy="-3" r="2.4" fill="#222"/>
+          </g>
+          <!-- 热气 -->
+          <g class="steam">
+            <path class="st1" d="M180 205 q6 -12 0 -24 q-6 -12 0 -24"/>
+            <path class="st2" d="M260 200 q6 -12 0 -24 q-6 -12 0 -24"/>
+            <path class="st3" d="M340 205 q6 -12 0 -24 q-6 -12 0 -24"/>
+          </g>
+          <!-- 鱼碎屑 -->
+          <g class="fish-crumbs">
+            <circle class="crumb" cx="230" cy="230" r="5"/>
+            <circle class="crumb" cx="300" cy="235" r="4"/>
+            <circle class="crumb" cx="270" cy="218" r="6"/>
+            <circle class="crumb" cx="360" cy="228" r="4"/>
+            <circle class="crumb" cx="180" cy="240" r="3"/>
+          </g>
+          <!-- 结果文字 -->
+          <text class="wok-result" x="260" y="120" text-anchor="middle">煎好了吗？</text>
+        </svg>
+        <div class="cook-buttons">
+          <button class="btn btn-bad" id="btnFry">🔥 频繁翻动（瞎折腾）</button>
+          <button class="btn btn-good" id="btnWait">🍵 静候火候（无为）</button>
+          <button class="btn btn-reset" id="btnResetWok">↺ 重来</button>
+        </div>
+        <div class="cook-feedback" id="cookFeedback">点一个按钮试试</div>
+      </div>
+
+      <div class="wok-quotes reveal">
+        <blockquote>
+          <p class="q-text">治大国，若烹小鲜。</p>
+          <footer>——《道德经》第60章</footer>
+        </blockquote>
+        <blockquote>
+          <p class="q-text">烹小鲜而数挠之，则贼其泽；治大国而数变法，则民苦之。</p>
+          <footer>——韩非子《解老》：「老是翻鱼，鱼就烂；老改政策，百姓就苦」</footer>
+        </blockquote>
+        <blockquote>
+          <p class="q-text">烹鱼烦则碎，治民烦则散。</p>
+          <footer>——汉初《毛诗故训传》</footer>
+        </blockquote>
+        <p class="plain-talk">💡 大白话：小鱼又嫩又小，你总拿铲子翻它，它就成了渣。国家也一样——政策一天一个样，百姓都不知道怎么办，人心就散了。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第三章：大禹治水 ============ -->
+  <section class="chapter" id="step3" data-step="3">
+    <div class="chapter-head reveal">
+      <span class="ghost-num">叁</span>
+      <h2>最早的「无为」案例：大禹治水</h2>
+      <p class="lead">四千年前一场大洪水，父子俩给出两种答案。按「开工」按钮，看谁赢 ↓</p>
+    </div>
+
+    <div class="flood-stage reveal">
+      <div class="flood-tabs">
+        <button class="flood-tab active" data-mode="gun">鲧 · 堵（有为乱来）</button>
+        <button class="flood-tab" data-mode="yu">禹 · 疏（无为而治）</button>
+      </div>
+
+      <div class="flood-scene mode-gun">
+        <svg class="flood-svg" viewBox="0 0 720 400">
+          <!-- 天空 -->
+          <rect width="720" height="400" fill="#efe9d8"/>
+          <!-- 远山 -->
+          <path class="hill" d="M0 240 L90 160 L180 240 Z" fill="#c9c2ab"/>
+          <path class="hill" d="M540 250 L640 175 L720 250 Z" fill="#c9c2ab"/>
+          <!-- 田地 -->
+          <rect class="field" x="60" y="270" width="600" height="90" rx="6" fill="#b9c99a"/>
+          <g class="field-lines" stroke="#9fb284" stroke-width="2">
+            <path d="M60 292 H660"/><path d="M60 314 H660"/><path d="M60 336 H660"/>
+          </g>
+          <!-- 村庄 -->
+          <g class="village">
+            <rect class="house" x="200" y="300" width="46" height="34" fill="#d9c9a3" stroke="#6b5b3e"/>
+            <path class="roof" d="M195 300 L223 282 L251 300 Z" fill="#7a5a44"/>
+            <rect class="house" x="268" y="308" width="40" height="26" fill="#d9c9a3" stroke="#6b5b3e"/>
+            <path class="roof" d="M264 308 L288 292 L312 308 Z" fill="#7a5a44"/>
+            <rect class="house" x="330" y="300" width="46" height="34" fill="#d9c9a3" stroke="#6b5b3e"/>
+            <path class="roof" d="M325 300 L353 282 L381 300 Z" fill="#7a5a44"/>
+          </g>
+          <!-- 河流(上游) -->
+          <path class="river" d="M360 0 C330 60 390 120 360 190 C340 230 380 260 360 290 L360 400 L360 290" fill="none"/>
+          <rect class="river-body" x="336" y="0" width="48" height="285" rx="6" fill="#7ea7c9"/>
+          <!-- 水位 -->
+          <rect class="water-level" x="336" y="90" width="48" height="195" fill="#5b8fb8"/>
+          <!-- 波浪 -->
+          <g class="waves" fill="none" stroke="#dbe9f4" stroke-width="3">
+            <path d="M336 105 q6 -6 12 0 t12 0 t12 0 t12 0"/>
+            <path d="M336 130 q6 -6 12 0 t12 0 t12 0 t12 0"/>
+          </g>
+          <!-- 堤坝（鲧模式） -->
+          <rect class="dam" x="318" y="120" width="88" height="165" fill="#8a7a5f" stroke="#5f5240"/>
+          <g class="dam-cracks" stroke="#3d3427" stroke-width="2.5">
+            <path d="M340 150 l10 14 l-6 12"/>
+            <path d="M380 160 l-12 16 l8 10"/>
+          </g>
+          <!-- 疏导渠道（禹模式） -->
+          <g class="channel">
+            <path class="channel-ditch" d="M360 190 C420 210 500 240 580 290 L660 320" fill="none" stroke="#8a7a5f" stroke-width="34" stroke-linecap="round" stroke-dasharray="10 8"/>
+            <path class="channel-water" d="M360 190 C420 210 500 240 580 290 L660 320" fill="none" stroke="#6fa3cc" stroke-width="20" stroke-linecap="round"/>
+          </g>
+          <!-- 大海 -->
+          <path class="sea" d="M640 320 L720 320 L720 400 L600 400 Q620 355 660 335 Z" fill="#4f8fb5"/>
+          <!-- 洪水（溃坝后） -->
+          <rect class="flood-wave" x="300" y="240" width="420" height="160" fill="#4f8fb5" opacity="0"/>
+          <!-- 人物 -->
+          <g class="villager" transform="translate(150,300)">
+            <circle r="9" fill="#6b5b3e"/><rect x="-8" y="9" width="16" height="20" rx="4" fill="#7a5a44"/>
+          </g>
+          <g class="villager" transform="translate(470,306)">
+            <circle r="9" fill="#6b5b3e"/><rect x="-8" y="9" width="16" height="20" rx="4" fill="#7a5a44"/>
+          </g>
+          <!-- 状态文字 -->
+          <text class="flood-status" x="360" y="52" text-anchor="middle">九年了，水越堵越高……</text>
+        </svg>
+      </div>
+
+      <div class="flood-controls">
+        <button class="btn btn-primary" id="btnStartFlood">▶ 开工</button>
+        <button class="btn btn-reset" id="btnResetFlood">↺ 重来</button>
+      </div>
+      <div class="flood-feedback" id="floodFeedback">先选一种治水方法，再按「开工」</div>
+    </div>
+
+    <div class="flood-quotes reveal">
+      <blockquote>
+        <p class="q-text">禹之行水也，行其所无事也。</p>
+        <footer>——孟子：大禹治水，看起来「没干什么大事」，其实是顺着水的性子走</footer>
+      </blockquote>
+      <p class="plain-talk">💡 大白话：水往低处流，这是规律。鲧非要跟规律对着干（堵），越堵越高、最后崩了；禹顺着规律给水找出路（疏），不用蛮力，水自己就乖了。<strong>顺规律办事，力气花得少，效果反而好——这就是「无为」。</strong></p>
+    </div>
+  </section>
+
+  <!-- ============ 第四章：文景之治 ============ -->
+  <section class="chapter chapter-alt" id="step4" data-step="4">
+    <div class="chapter-head reveal">
+      <span class="ghost-num">肆</span>
+      <h2>真实历史：文景之治</h2>
+      <p class="lead">汉朝皇帝把「无为」用成了国策。拖动滑杆，看看「折腾程度」如何决定百姓的日子 ↓</p>
+    </div>
+
+    <div class="sim reveal">
+      <div class="sim-panel">
+        <label class="sim-label" for="simSlider">朝廷「折腾指数」<span id="simValue">80</span></label>
+        <input type="range" id="simSlider" min="0" max="100" value="80" aria-label="朝廷折腾指数">
+        <div class="sim-scale"><span>0 完全无为</span><span>100 疯狂折腾</span></div>
+      </div>
+
+      <div class="sim-meters">
+        <div class="meter">
+          <span class="meter-name">😊 百姓的日子</span>
+          <div class="meter-track"><div class="meter-fill fill-life" id="meterLife"></div></div>
+        </div>
+        <div class="meter">
+          <span class="meter-name">💰 国家粮仓</span>
+          <div class="meter-track"><div class="meter-fill fill-grain" id="meterGrain"></div></div>
+        </div>
+        <div class="meter">
+          <span class="meter-name">🏯 王朝寿命</span>
+          <div class="meter-track"><div class="meter-fill fill-age" id="meterAge"></div></div>
+        </div>
+      </div>
+
+      <div class="sim-face" id="simFace">😫</div>
+      <div class="sim-verdict" id="simVerdict">朝廷天天加税、拉人修工程……百姓快活不下去了。</div>
+      <div class="sim-badge" id="simBadge">🏆 文景之治 · 三十税一 · 与民休息</div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="tl-item"><span class="tl-dot"></span><strong>秦朝（前221年）</strong><p>严刑峻法、重徭役、大兴土木 → 百姓不堪重负，二世而亡。</p></div>
+      <div class="tl-item"><span class="tl-dot"></span><strong>汉初（前206年）</strong><p>吸取教训，用「黄老之学」治国：<em>黄</em>＝立好规则法治，<em>老</em>＝清静无为。田税降到「十五税一」。</p></div>
+      <div class="tl-item"><span class="tl-dot"></span><strong>文景时期（前179年）</strong><p>「轻徭薄赋、与民休息」：田税降到「三十税一」，汉文帝十三年干脆全免田租；少打仗，对匈奴和亲；文帝自己一件新衣服都舍不得添。</p></div>
+      <div class="tl-item"><span class="tl-dot"></span><strong>结果（前141年）</strong><p>粮仓满了，国库富了，人口翻番——攒下的家底，让汉武帝有能力北击匈奴。</p></div>
+    </div>
+
+    <p class="plain-talk reveal">💡 大白话：皇帝不瞎折腾（少收税、少打仗、少修宫殿），百姓自己会种田、做生意，国家反而富得流油。<strong>注意：「无为」≠啥也不干</strong>——法律照常运转、坏规矩的人照样治，只是不额外添乱。</p>
+  </section>
+
+  <!-- ============ 第五章：萧规曹随 ============ -->
+  <section class="chapter" id="step5" data-step="5">
+    <div class="chapter-head reveal">
+      <span class="ghost-num">伍</span>
+      <h2>小剧场：萧规曹随</h2>
+      <p class="lead">西汉宰相曹参，上任后天天喝酒、一条法令都不改。皇帝急了……点「下一幕」往下看 ↓</p>
+    </div>
+
+    <div class="theater reveal">
+      <div class="stage">
+        <div class="actor actor-left" id="actorLeft">
+          <svg viewBox="0 0 120 160">
+            <circle class="head" cx="60" cy="38" r="20" fill="#f0e6cf" stroke="#4a3b28"/>
+            <path class="crown" d="M42 22 L48 8 L60 18 L72 8 L78 22 Z" fill="#c9a227"/>
+            <path class="body" d="M60 58 C30 58 28 100 24 132 L96 132 C92 100 90 58 60 58 Z" fill="#8c2f2f"/>
+            <path class="belt" d="M60 58 C30 58 28 100 24 132 L96 132 C92 100 90 58 60 58 Z" fill="none" stroke="#c9a227" stroke-width="5"/>
+          </svg>
+          <span class="actor-name">汉惠帝</span>
+        </div>
+        <div class="actor actor-right" id="actorRight">
+          <svg viewBox="0 0 120 160">
+            <circle class="head" cx="60" cy="38" r="20" fill="#f0e6cf" stroke="#4a3b28"/>
+            <path class="hat" d="M38 24 L60 6 L82 24 L74 24 L74 20 L46 20 L46 24 Z" fill="#3f3a52"/>
+            <path class="beard" d="M46 50 q14 16 28 0 l-4 10 q-10 12 -20 0 Z" fill="#d8d4c8"/>
+            <path class="body" d="M60 58 C30 58 28 100 24 132 L96 132 C92 100 90 58 60 58 Z" fill="#37474f"/>
+          </svg>
+          <span class="actor-name">曹参</span>
+        </div>
+
+        <div class="speech" id="speech">
+          <p class="speech-text" id="speechText"></p>
+          <span class="speech-who" id="speechWho"></span>
+        </div>
+      </div>
+
+      <div class="theater-controls">
+        <div class="scene-dots" id="sceneDots"></div>
+        <button class="btn btn-primary" id="btnNextScene">下一幕 ▶</button>
+        <button class="btn btn-reset" id="btnResetTheater">↺ 从头看</button>
+      </div>
+    </div>
+
+    <div class="theater-note reveal">
+      <p class="plain-talk">💡 注意别学歪了：曹参不是废物——他<b>重用老实厚道的人、赶走爱作秀的官</b>，小过错不追究、大规矩不放松。他「不折腾」，是因为萧何定的法令已经够好。<strong>无为 = 好规矩立起来后，忍住不乱改、不瞎指挥。</strong></p>
+      <blockquote>
+        <p class="q-text">萧何为法，顜若画一；曹参代之，守而勿失。载其清净，民以宁一。</p>
+        <footer>——《史记·曹相国世家》当时百姓传唱的歌谣</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============ 第六章：金句卡 ============ -->
+  <section class="chapter chapter-alt" id="step6" data-step="6">
+    <div class="chapter-head reveal">
+      <span class="ghost-num">陆</span>
+      <h2>背下这四句，就懂了八分</h2>
+      <p class="lead">点卡片翻面，看白话翻译 ↓</p>
+    </div>
+
+    <div class="quote-cards reveal">
+      <div class="quote-card" tabindex="0" role="button">
+        <div class="qc-inner">
+          <div class="qc-front"><p class="qc-text">治大国<br>若烹小鲜</p><span class="qc-src">第60章</span></div>
+          <div class="qc-back"><p class="qc-text">治理大国像煎小鱼：<strong>别老翻动</strong>。政策稳定，百姓才安心。</p><span class="qc-src">第60章</span></div>
+        </div>
+      </div>
+      <div class="quote-card" tabindex="0" role="button">
+        <div class="qc-inner">
+          <div class="qc-front"><p class="qc-text">太上<br>不知有之</p><span class="qc-src">第17章</span></div>
+          <div class="qc-back"><p class="qc-text">最好的领导，百姓<strong>感觉不到他在指手画脚</strong>——事办成了，大家说「本来就这样呀」。</p><span class="qc-src">第17章</span></div>
+        </div>
+      </div>
+      <div class="quote-card" tabindex="0" role="button">
+        <div class="qc-inner">
+          <div class="qc-front"><p class="qc-text">我无为<br>而民自化</p><span class="qc-src">第57章</span></div>
+          <div class="qc-back"><p class="qc-text">我不瞎折腾，百姓<strong>自己会变好</strong>；我好静，百姓自己走正道；我不生事，百姓自己富起来。</p><span class="qc-src">第57章</span></div>
+        </div>
+      </div>
+      <div class="quote-card" tabindex="0" role="button">
+        <div class="qc-inner">
+          <div class="qc-front"><p class="qc-text">为之于未有<br>治之于未乱</p><span class="qc-src">第64章</span></div>
+          <div class="qc-back"><p class="qc-text">无为不是不干事：<strong>事情没发生前就动手，乱子没起来前就治理</strong>——像大禹提前挖好水渠。</p><span class="qc-src">第64章</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="formula reveal">
+      <p class="def-label">本课总公式</p>
+      <p class="formula-text">无为 = 守规律 − 瞎折腾 + 该干则干 → 无为而无不为</p>
+      <p class="def-note">《道德经》第37章：「道常无为而无不为」——顺着「道」（规律）走，什么都不硬来，反而什么事都办得成。</p>
+    </div>
+  </section>
+
+  <!-- ============ 第七章：现代应用 ============ -->
+  <section class="chapter" id="step7" data-step="7">
+    <div class="chapter-head reveal">
+      <span class="ghost-num">柒</span>
+      <h2>今天怎么用？</h2>
+      <p class="lead">两千五百年前的智慧，现在每天都在用。点开看看 ↓</p>
+    </div>
+
+    <div class="apply-tabs reveal">
+      <button class="apply-tab active" data-tab="work">🏢 工作·管理</button>
+      <button class="apply-tab" data-tab="family">🏠 教育·家庭</button>
+      <button class="apply-tab" data-tab="self">🌱 自己·生活</button>
+    </div>
+
+    <div class="apply-panels reveal">
+      <div class="apply-panel active" data-panel="work">
+        <div class="apply-col bad">
+          <h3>❌ 瞎折腾式</h3>
+          <ul>
+            <li>一天开三次会，任务一天改五回</li>
+            <li>领导啥都要管，员工手脚被捆住</li>
+            <li>制度朝令夕改，大家只求不犯错</li>
+          </ul>
+        </div>
+        <div class="apply-col good">
+          <h3>✅ 无为式（曹参式）</h3>
+          <ul>
+            <li>定好目标和规矩，然后放手让人干</li>
+            <li>少微操、少朝令夕改，把精力放在「立好规矩」上</li>
+            <li>就像萧何立好法令，曹参守着不乱改</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="apply-panel" data-panel="family">
+        <div class="apply-col bad">
+          <h3>❌ 瞎折腾式</h3>
+          <ul>
+            <li>孩子写作业，家长在旁边不停纠正</li>
+            <li>一天念叨八百遍，什么都包办</li>
+            <li>兴趣班换来换去，比孩子还焦虑</li>
+          </ul>
+        </div>
+        <div class="apply-col good">
+          <h3>✅ 无为式（烹小鲜式）</h3>
+          <ul>
+            <li>立好底线（安全、礼貌、作息），其余给空间</li>
+            <li>小鱼不能老翻——孩子也不能天天被「翻炒」</li>
+            <li>家长少唠叨，孩子反而自己长本事</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="apply-panel" data-panel="self">
+        <div class="apply-col bad">
+          <h3>❌ 瞎折腾式</h3>
+          <ul>
+            <li>跟身体死磕：熬夜硬学、暴瘦式减肥</li>
+            <li>事事攀比，天天内耗</li>
+            <li>定 100 个目标，一个都坚持不了</li>
+          </ul>
+        </div>
+        <div class="apply-col good">
+          <h3>✅ 无为式（大禹式）</h3>
+          <ul>
+            <li>顺着自己的节奏走，不跟天性硬刚</li>
+            <li>「千里之行，始于足下」——该动就动，但一小步一小步来</li>
+            <li>像疏导洪水：给情绪和压力找出路，而不是硬堵</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第八章：小测验 ============ -->
+  <section class="chapter chapter-alt" id="step8" data-step="8">
+    <div class="chapter-head reveal">
+      <span class="ghost-num">捌</span>
+      <h2>检验一下：你懂了吗？</h2>
+      <p class="lead">4 道题，选完立刻知道对不对 ↓</p>
+    </div>
+
+    <div class="quiz reveal" id="quiz">
+      <div class="quiz-question" data-q="1">
+        <p class="quiz-title">1. 「无为而治」的「无为」最准确的意思是？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" data-correct="false">A. 躺平摆烂，啥都不干</button>
+          <button class="quiz-opt" data-correct="true">B. 不妄为、不折腾，顺着规律办事</button>
+          <button class="quiz-opt" data-correct="false">C. 领导啥都不用管，下面自己会好</button>
+          <button class="quiz-opt" data-correct="false">D. 消极认命，顺其自然</button>
+        </div>
+        <p class="quiz-explain"></p>
+      </div>
+
+      <div class="quiz-question" data-q="2">
+        <p class="quiz-title">2. 「治大国，若烹小鲜」是在说什么？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" data-correct="false">A. 治国就像炒菜，很简单轻松</button>
+          <button class="quiz-opt" data-correct="false">B. 治国要像做菜一样多放调料</button>
+          <button class="quiz-opt" data-correct="true">C. 别老翻动——政策要稳，别总折腾百姓</button>
+          <button class="quiz-opt" data-correct="false">D. 政策要天天更新，像菜要天天做</button>
+        </div>
+        <p class="quiz-explain"></p>
+      </div>
+
+      <div class="quiz-question" data-q="3">
+        <p class="quiz-title">3. 大禹治水成功，靠的是什么？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" data-correct="false">A. 把堤坝修得更高更结实（堵）</button>
+          <button class="quiz-opt" data-correct="true">B. 顺应水性，挖渠疏导（疏）</button>
+          <button class="quiz-opt" data-correct="false">C. 求老天爷把雨停了</button>
+          <button class="quiz-opt" data-correct="false">D. 把家搬到高山上</button>
+        </div>
+        <p class="quiz-explain"></p>
+      </div>
+
+      <div class="quiz-question" data-q="4">
+        <p class="quiz-title">4. 汉朝「文景之治」的秘诀是？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" data-correct="false">A. 天天变法，让百姓有新鲜感</button>
+          <button class="quiz-opt" data-correct="false">B. 大兴土木，展示国家实力</button>
+          <button class="quiz-opt" data-correct="false">C. 频繁打仗，扩张领土</button>
+          <button class="quiz-opt" data-correct="true">D. 轻徭薄赋、与民休息（少折腾百姓）</button>
+        </div>
+        <p class="quiz-explain"></p>
+      </div>
+
+      <div class="quiz-result" id="quizResult">
+        <p class="quiz-score" id="quizScore"></p>
+        <p class="quiz-comment" id="quizComment"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 结语 ============ -->
+  <section class="ending" id="ending">
+    <div class="ending-inner reveal">
+      <svg class="taiji taiji-small" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="50" fill="var(--paper)"/>
+        <path d="M50 0a50 50 0 0 1 0 100 25 25 0 0 1 0 -50 25 25 0 0 0 0 -50z" fill="var(--ink)"/>
+        <circle cx="50" cy="25" r="7" fill="var(--ink)"/>
+        <circle cx="50" cy="75" r="7" fill="var(--paper)"/>
+      </svg>
+      <h2>无为，不是不做，而是不瞎做</h2>
+      <p class="ending-text">看懂「无为而治」，就懂了四个字——<strong>顺其自然</strong>。</p>
+      <p class="ending-text">顺着水的性子疏，顺着百姓的心性治，顺着规律的节奏走。<br>力气花在刀刃上，剩下的交给时间。</p>
+      <p class="ending-quote">道常无为而无不为。<span class="src-tag">——《道德经》第37章</span></p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 页脚 ============ -->
+<footer class="site-footer">
+  <p>☯ 无为而治 · 互动课堂 —— 内容依据公开权威资料编写</p>
+  <ul class="refs">
+    <li><a href="https://zh.wikipedia.org/zh-hans/%E6%96%87%E6%99%AF%E4%B9%8B%E6%B2%BB" target="_blank" rel="noopener">文景之治 · 维基百科</a></li>
+    <li><a href="https://zh.wikipedia.org/wiki/%E8%95%AD%E8%A6%8F%E6%9B%B9%E9%9A%8F" target="_blank" rel="noopener">萧规曹随 · 维基百科（含《史记·曹相国世家》原文）</a></li>
+    <li><a href="https://zh.wikipedia.org/zh-cn/%E9%B2%A7%E7%A6%B9%E6%B2%BB%E6%B0%B4" target="_blank" rel="noopener">鲧禹治水 · 维基百科</a></li>
+    <li><a href="http://paper.people.com.cn/fcyym/html/2021-02/26/content_2036669.htm" target="_blank" rel="noopener">人民日报：「治大国若烹小鲜」今解</a></li>
+    <li><a href="https://www.thepaper.cn/newsDetail_forward_1885172" target="_blank" rel="noopener">澎湃新闻：文景之治的「无为」实则大有为</a></li>
+  </ul>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+
+<script src="js/app.js"></script>
+</body>
+</html>
