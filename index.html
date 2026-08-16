@@ -33,7 +33,8 @@
   <div class="top-nav-inner">
     <span class="brand">☯ 无为而治</span>
     <nav class="step-dots" id="stepDots" aria-label="章节导航"></nav>
-    <span class="step-counter" id="stepCounter">0 / 8</span>
+    <button class="dark-toggle" id="darkToggle" aria-label="切换深色模式" title="切换深色模式">🌙</button>
+    <span class="step-counter" id="stepCounter">0 / 10</span>
   </div>
 </header>
 
@@ -59,10 +60,10 @@
   <div class="hero-content">
     <div class="taiji-wrap">
       <svg class="taiji" viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="50" r="50" fill="var(--paper)"/>
-        <path d="M50 0a50 50 0 0 1 0 100 25 25 0 0 1 0 -50 25 25 0 0 0 0 -50z" fill="var(--ink)"/>
-        <circle cx="50" cy="25" r="7" fill="var(--ink)"/>
-        <circle cx="50" cy="75" r="7" fill="var(--paper)"/>
+        <circle cx="50" cy="50" r="50" fill="#f6f1e3"/>
+        <path d="M50 0a50 50 0 0 1 0 100 25 25 0 0 1 0 -50 25 25 0 0 0 0 -50z" fill="#26221b"/>
+        <circle cx="50" cy="25" r="7" fill="#26221b"/>
+        <circle cx="50" cy="75" r="7" fill="#f6f1e3"/>
       </svg>
       <div class="taiji-halo"></div>
     </div>
@@ -76,12 +77,65 @@
 
 <main>
 
-  <!-- ============ 第一章：破误区 ============ -->
+  <!-- ============ 序章：老子与道德经 ============ -->
   <section class="chapter" id="step1" data-step="1">
+    <div class="chapter-head reveal">
+      <span class="ghost-num">序</span>
+      <h2>开讲前：老子是谁？书讲什么？</h2>
+      <p class="lead">2500 年前的乱世里，有位老人写了 5000 个字，成为流传最广的中文经典之一。花 30 秒认识他 ↓</p>
+      <button class="tts-btn" data-tts="step1" aria-label="朗读本章要点">🔊 听讲解</button>
+      <p class="tts-text" hidden>老子，姓李名耳，字聃，春秋末期人，做过周朝的守藏室之史，相当于国家图书馆馆长。晚年见周朝衰落，骑青牛西行出关。函谷关的关令尹喜拦住他说，先生要归隐了，请务必留下本书。于是老子写下上下两篇、五千多字的道德经。全书讲一个最高的规律——道，以及人该怎么顺着它生活。</p>
+    </div>
+
+    <div class="intro-cards reveal">
+      <details class="intro-card">
+        <summary><span class="intro-ico">👴</span><strong>他是谁？</strong><span class="intro-arrow">▾</span></summary>
+        <div class="intro-body">
+          <p>老子，姓李名耳，字聃（dān），春秋末期人，楚苦县厉乡曲仁里人（今河南鹿邑一带）。</p>
+          <p>他的正式工作是周朝的<b>「守藏室之史」</b>——相当于今天的国家图书馆兼档案馆馆长，天下的书都归他管，是当时学问最渊博的人之一。</p>
+          <p>孔子曾专程到周朝向他<b>问礼</b>，回去后感叹：老子就像一条深不可测的龙。</p>
+        </div>
+      </details>
+
+      <details class="intro-card">
+        <summary><span class="intro-ico">🏔️</span><strong>书怎么来的？</strong><span class="intro-arrow">▾</span></summary>
+        <div class="intro-body">
+          <p>老子晚年见周朝衰落、天下大乱，决定离开，<b>骑青牛西行</b>。</p>
+          <p>走到函谷关，关令<b>尹喜</b>拦住他说：「先生要归隐了，请务必为我们留下本书！」</p>
+          <p>于是老子写下<b>上下两篇、五千余言</b>，讲「道」与「德」的真意——这就是后来的《道德经》（又称《老子》）。写完后飘然而去，<b>「莫知其所终」</b>，没人知道他最后去了哪里。</p>
+        </div>
+      </details>
+
+      <details class="intro-card">
+        <summary><span class="intro-ico">📖</span><strong>讲了什么？</strong><span class="intro-arrow">▾</span></summary>
+        <div class="intro-body">
+          <p>全书 <b>81 章</b>，核心就一个词：<b>「道」</b>——天地万物运行的规律。</p>
+          <p>「人法地，地法天，天法道，<b>道法自然</b>」：最高明的活法，是顺着规律来，别硬来。</p>
+          <p>我们今天学的<b>「无为而治」</b>，就是这套思想用在治国上的样子——皇帝不瞎折腾，天下反而大治。</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="timeline intro-timeline reveal">
+      <div class="tl-item"><span class="tl-dot"></span><strong>约公元前 571 年</strong><p>老子出生（楚苦县厉乡曲仁里）</p></div>
+      <div class="tl-item"><span class="tl-dot"></span><strong>周朝 · 任职</strong><p>守藏室之史：国家图书馆馆长，读遍天下书</p></div>
+      <div class="tl-item"><span class="tl-dot"></span><strong>孔子问礼</strong><p>「仲尼适周，问礼于老子」——孔子尊他为师</p></div>
+      <div class="tl-item"><span class="tl-dot"></span><strong>约公元前 5 世纪</strong><p>骑青牛出函谷关，应尹喜之请著《道德经》五千言</p></div>
+      <div class="tl-item"><span class="tl-dot"></span><strong>此后两千五百年</strong><p>成为被翻译最多的中文经典之一，全世界都在读</p></div>
+    </div>
+
+    <p class="plain-talk reveal">💡 大白话：老子一辈子干的「大事」，就是把天下的规律看透了，然后告诉你——<strong>顺着规律走，别瞎折腾</strong>。下面正式开始。</p>
+    <p class="src-note reveal">资料来源：《史记·老子韩非列传》等</p>
+  </section>
+
+  <!-- ============ 第一章：破误区 ============ -->
+  <section class="chapter" id="step2" data-step="2">
     <div class="chapter-head reveal">
       <span class="ghost-num">壹</span>
       <h2>先破个误会：无为 ≠ 躺平</h2>
       <p class="lead">很多人一听「无为」就以为是啥也不干。先来翻三张牌，看看你中招没有 ↓</p>
+      <button class="tts-btn" data-tts="step2" aria-label="朗读本章要点">🔊 听讲解</button>
+      <p class="tts-text" hidden>无为不是躺平，不是啥都不管，也不是消极认命。无为是不妄为、不折腾、顺着规律来。该疏的水要疏，该立的法要立，只是不违背规律硬来。</p>
     </div>
 
     <div class="myth-cards reveal">
@@ -133,11 +187,13 @@
   </section>
 
   <!-- ============ 第二章：烹小鲜 ============ -->
-  <section class="chapter chapter-alt" id="step2" data-step="2">
+  <section class="chapter chapter-alt" id="step3" data-step="3">
     <div class="chapter-head reveal">
       <span class="ghost-num">贰</span>
       <h2>经典比喻：治大国，若烹小鲜</h2>
       <p class="lead">老子把治国比作「煎小鱼」。来，你当一回厨师，亲手试试两种做法 ↓</p>
+      <button class="tts-btn" data-tts="step3" aria-label="朗读本章要点">🔊 听讲解</button>
+      <p class="tts-text" hidden>老子说，治理大国就像煎小鱼。小鱼很嫩，老翻动就碎了；国家也一样，政策天天变，百姓就乱了。韩非子注释说：烹小鲜而数挠之，则贼其泽；治大国而数变法，则民苦之。老是翻鱼，鱼就烂；老改政策，百姓就苦。</p>
     </div>
 
     <div class="kitchen reveal">
@@ -208,12 +264,100 @@
     </div>
   </section>
 
-  <!-- ============ 第三章：大禹治水 ============ -->
-  <section class="chapter" id="step3" data-step="3">
+  <!-- ============ 第三章：庖丁解牛 ============ -->
+  <section class="chapter" id="step4" data-step="4">
     <div class="chapter-head reveal">
       <span class="ghost-num">叁</span>
+      <h2>庄子的神刀：庖丁解牛</h2>
+      <p class="lead">一把刀用了 19 年还像新磨的——秘密是什么？你来当庖丁，试两种刀法 ↓</p>
+      <button class="tts-btn" data-tts="step4" aria-label="朗读本章要点">🔊 听讲解</button>
+      <p class="tts-text" hidden>庖丁给文惠君分解牛，动作像跳舞一样合着节拍。他说：我顺着牛天生的纹理空隙下刀，从不硬砍骨头。好厨子一年换一把刀，普通厨子一个月就换一把；我的刀用了十九年，还像新磨的一样。牛，就像难题；纹理，就是规律；顺着规律走，省力又高效。文惠君听完说：我听了庖丁的话，连养生的道理都懂了。</p>
+    </div>
+
+    <div class="butcher-stage reveal" id="butcherStage">
+      <svg class="butcher-svg" viewBox="0 0 720 360" aria-label="庖丁解牛刀法演示">
+        <rect width="720" height="360" fill="#f7f2e4"/>
+        <path d="M20 330 H700" stroke="#c9bda0" stroke-width="3" stroke-dasharray="10 8" fill="none"/>
+
+        <!-- 后段（臀腿） -->
+        <g class="cow-seg seg-c">
+          <path class="cow-body" d="M145 165 h143 q22 0 22 22 v58 q0 22 -22 22 h-143 q-22 0 -22 -22 v-58 q0 -22 22 -22 Z" fill="#f4ecd9" stroke="#3a332a" stroke-width="4"/>
+          <rect x="168" y="258" width="26" height="58" rx="10" fill="#f4ecd9" stroke="#3a332a" stroke-width="4"/>
+          <rect x="232" y="258" width="26" height="58" rx="10" fill="#f4ecd9" stroke="#3a332a" stroke-width="4"/>
+          <path d="M128 190 Q100 175 96 205" stroke="#3a332a" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M96 205 l-8 12 l10 -2 Z" fill="#3a332a"/>
+        </g>
+
+        <!-- 中段（胸腹） -->
+        <g class="cow-seg seg-b">
+          <path class="cow-body" d="M313 160 h165 q22 0 22 22 v52 q0 22 -22 22 h-165 q-22 0 -22 -22 v-52 q0 -22 22 -22 Z" fill="#f4ecd9" stroke="#3a332a" stroke-width="4"/>
+          <rect x="352" y="252" width="26" height="60" rx="10" fill="#f4ecd9" stroke="#3a332a" stroke-width="4"/>
+          <rect x="442" y="252" width="26" height="60" rx="10" fill="#f4ecd9" stroke="#3a332a" stroke-width="4"/>
+        </g>
+
+        <!-- 前段（头颈+前腿） -->
+        <g class="cow-seg seg-a">
+          <path class="cow-body" d="M507 165 h70 q18 0 18 18 v30 q0 14 -14 14 h-74 Z" fill="#f4ecd9" stroke="#3a332a" stroke-width="4"/>
+          <ellipse cx="640" cy="168" rx="42" ry="32" fill="#f4ecd9" stroke="#3a332a" stroke-width="4"/>
+          <path d="M612 142 q-6 -18 8 -26" stroke="#3a332a" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M640 138 q4 -20 18 -24" stroke="#3a332a" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <ellipse cx="672" cy="178" rx="9" ry="6" fill="#d8c9a8"/>
+          <rect x="528" y="250" width="24" height="62" rx="10" fill="#f4ecd9" stroke="#3a332a" stroke-width="4"/>
+          <rect x="562" y="250" width="24" height="62" rx="10" fill="#f4ecd9" stroke="#3a332a" stroke-width="4"/>
+        </g>
+
+        <!-- 纹理空隙（虚线） -->
+        <path class="seam seam1" d="M313 160 Q302 208 313 256" stroke="#8a7a5f" stroke-width="3" stroke-dasharray="7 7" fill="none"/>
+        <path class="seam seam2" d="M500 160 Q490 208 500 256" stroke="#8a7a5f" stroke-width="3" stroke-dasharray="7 7" fill="none"/>
+        <text x="298" y="138" fill="#8a7a5f" font-size="15" text-anchor="middle">纹理空隙</text>
+        <!-- 肯綮（骨节硬点） -->
+        <circle class="bone" cx="310" cy="208" r="7" fill="#fff" stroke="#3a332a" stroke-width="3"/>
+        <circle class="bone" cx="500" cy="208" r="7" fill="#fff" stroke="#3a332a" stroke-width="3"/>
+        <text x="452" y="186" fill="#8a7a5f" font-size="15" text-anchor="middle">肯綮（骨节）</text>
+
+        <!-- 火星 -->
+        <g class="sparks">
+          <path d="M500 208 L494 196 M500 208 L510 198 M500 208 L493 215 M500 208 L508 218 M500 208 L500 190" stroke="#d97706" stroke-width="3"/>
+          <circle cx="500" cy="208" r="4" fill="#fbbf24"/>
+        </g>
+
+        <!-- 刀 -->
+        <g class="knife" transform="translate(150,60)">
+          <rect x="-4" y="-24" width="8" height="24" rx="3" fill="#8a5a34" stroke="#4a3018" stroke-width="2"/>
+          <path class="blade" d="M-4 0 L4 0 L4 52 Q0 62 -4 52 Z" fill="#8b93a3" stroke="#2e3138" stroke-width="2"/>
+          <path class="notch" d="M4 18 L13 24 L4 29 Z" fill="#a63a2b" opacity="0"/>
+        </g>
+      </svg>
+      <div class="butcher-result" id="butcherResult">选一种刀法试试</div>
+      <div class="butcher-buttons">
+        <button class="btn btn-good" id="btnSlice">🔪 顺着纹理切（庖丁）</button>
+        <button class="btn btn-bad" id="btnChop">⛏️ 硬砍骨头（瞎折腾）</button>
+        <button class="btn btn-reset" id="btnResetButcher">↺ 重来</button>
+      </div>
+      <div class="butcher-feedback" id="butcherFeedback">牛身上有天然的「纹理空隙」，骨头硬、缝隙软——看你怎么下刀。</div>
+    </div>
+
+    <div class="butcher-quotes reveal">
+      <blockquote>
+        <p class="q-text">依乎天理，批大郤，导大窾，因其固然。</p>
+        <footer>——《庄子·养生主》：顺着天然结构，从空隙处下刀</footer>
+      </blockquote>
+      <blockquote>
+        <p class="q-text">良庖岁更刀，割也；族庖月更刀，折也。今臣之刀十九年矣……刀刃若新发于硎。</p>
+        <footer>——同上：好厨子一年换刀，普通厨子一月换刀，庖丁的刀十九年如新</footer>
+      </blockquote>
+      <p class="plain-talk">💡 大白话：牛＝难题，骨缝＝规律留下的空隙，刀＝你的力气。<strong>顺着空隙走，几乎不费劲，刀还不会坏；硬砍骨头，力气花十倍，刀一个月就废。</strong>文惠君听完说：「善哉！吾闻庖丁之言，得养生焉。」——原来养生也一样：别跟自己硬刚。</p>
+    </div>
+  </section>
+
+  <!-- ============ 第四章：大禹治水 ============ -->
+  <section class="chapter" id="step5" data-step="5">
+    <div class="chapter-head reveal">
+      <span class="ghost-num">肆</span>
       <h2>最早的「无为」案例：大禹治水</h2>
       <p class="lead">四千年前一场大洪水，父子俩给出两种答案。按「开工」按钮，看谁赢 ↓</p>
+      <button class="tts-btn" data-tts="step5" aria-label="朗读本章要点">🔊 听讲解</button>
+      <p class="tts-text" hidden>鲧用堵的办法，堤坝越修越高，水越涨越凶，治了九年还是失败。禹用疏的办法，顺着水性挖渠引水入海，治了十三年，三过家门而不入，终于成功。孟子说：禹之行水也，行其所无事也。顺着规律，看起来没使劲，其实最高明。</p>
     </div>
 
     <div class="flood-stage reveal">
@@ -296,12 +440,14 @@
     </div>
   </section>
 
-  <!-- ============ 第四章：文景之治 ============ -->
-  <section class="chapter chapter-alt" id="step4" data-step="4">
+  <!-- ============ 第五章：文景之治 ============ -->
+  <section class="chapter chapter-alt" id="step6" data-step="6">
     <div class="chapter-head reveal">
-      <span class="ghost-num">肆</span>
+      <span class="ghost-num">伍</span>
       <h2>真实历史：文景之治</h2>
       <p class="lead">汉朝皇帝把「无为」用成了国策。拖动滑杆，看看「折腾程度」如何决定百姓的日子 ↓</p>
+      <button class="tts-btn" data-tts="step6" aria-label="朗读本章要点">🔊 听讲解</button>
+      <p class="tts-text" hidden>汉初吸取秦朝暴政的教训，用黄老之学治国。轻徭薄赋，田税从十五税一降到三十税一，文帝十三年还全免田租；对匈奴和亲，不轻易打仗；汉文帝自己连新衣服都舍不得添。皇帝少折腾，百姓自己种田做买卖，国家反而富了起来。这就叫与民休息。</p>
     </div>
 
     <div class="sim reveal">
@@ -341,12 +487,14 @@
     <p class="plain-talk reveal">💡 大白话：皇帝不瞎折腾（少收税、少打仗、少修宫殿），百姓自己会种田、做生意，国家反而富得流油。<strong>注意：「无为」≠啥也不干</strong>——法律照常运转、坏规矩的人照样治，只是不额外添乱。</p>
   </section>
 
-  <!-- ============ 第五章：萧规曹随 ============ -->
-  <section class="chapter" id="step5" data-step="5">
+  <!-- ============ 第六章：萧规曹随 ============ -->
+  <section class="chapter" id="step7" data-step="7">
     <div class="chapter-head reveal">
-      <span class="ghost-num">伍</span>
+      <span class="ghost-num">陆</span>
       <h2>小剧场：萧规曹随</h2>
       <p class="lead">西汉宰相曹参，上任后天天喝酒、一条法令都不改。皇帝急了……点「下一幕」往下看 ↓</p>
+      <button class="tts-btn" data-tts="step7" aria-label="朗读本章要点">🔊 听讲解</button>
+      <p class="tts-text" hidden>萧何定好了法令，曹参接任相国后一条不改，天天喝酒。汉惠帝忍不住质问，曹参反问：陛下比得上高祖吗？臣比得上萧何吗？既然高祖和萧何定下的规矩已经够好，咱们守着不乱改，天下自然安宁。百姓传唱：萧何为法，顜若画一；曹参代之，守而勿失；载其清净，民以宁一。</p>
     </div>
 
     <div class="theater reveal">
@@ -392,12 +540,14 @@
     </div>
   </section>
 
-  <!-- ============ 第六章：金句卡 ============ -->
-  <section class="chapter chapter-alt" id="step6" data-step="6">
+  <!-- ============ 第七章：金句卡 ============ -->
+  <section class="chapter chapter-alt" id="step8" data-step="8">
     <div class="chapter-head reveal">
-      <span class="ghost-num">陆</span>
+      <span class="ghost-num">柒</span>
       <h2>背下这四句，就懂了八分</h2>
       <p class="lead">点卡片翻面，看白话翻译 ↓</p>
+      <button class="tts-btn" data-tts="step8" aria-label="朗读本章要点">🔊 听讲解</button>
+      <p class="tts-text" hidden>治大国若烹小鲜，政策要稳；太上，不知有之，最好的领导，让百姓感觉不到他在指手画脚；我无为而民自化，我不折腾，百姓自己会变好；为之于未有，治之于未乱，事情还没发生就动手，乱子还没起来就治理。记住总公式：无为，等于守规律，减折腾，该干则干。</p>
     </div>
 
     <div class="quote-cards reveal">
@@ -434,12 +584,14 @@
     </div>
   </section>
 
-  <!-- ============ 第七章：现代应用 ============ -->
-  <section class="chapter" id="step7" data-step="7">
+  <!-- ============ 第八章：现代应用 ============ -->
+  <section class="chapter" id="step9" data-step="9">
     <div class="chapter-head reveal">
-      <span class="ghost-num">柒</span>
+      <span class="ghost-num">捌</span>
       <h2>今天怎么用？</h2>
       <p class="lead">两千五百年前的智慧，现在每天都在用。点开看看 ↓</p>
+      <button class="tts-btn" data-tts="step9" aria-label="朗读本章要点">🔊 听讲解</button>
+      <p class="tts-text" hidden>工作中，定好规则少微操，像曹参一样守住好制度；教育孩子，立好底线给空间，别像煎小鱼一样天天翻炒；对待自己，顺着节奏不内耗，像大禹疏导洪水一样给情绪找出路。千里之行始于足下，该动就动，但一小步一小步来。</p>
     </div>
 
     <div class="apply-tabs reveal">
@@ -508,12 +660,14 @@
     </div>
   </section>
 
-  <!-- ============ 第八章：小测验 ============ -->
-  <section class="chapter chapter-alt" id="step8" data-step="8">
+  <!-- ============ 第九章：小测验 ============ -->
+  <section class="chapter chapter-alt" id="step10" data-step="10">
     <div class="chapter-head reveal">
-      <span class="ghost-num">捌</span>
+      <span class="ghost-num">玖</span>
       <h2>检验一下：你懂了吗？</h2>
-      <p class="lead">4 道题，选完立刻知道对不对 ↓</p>
+      <p class="lead">8 道题，选完立刻知道对不对，全答完有等级徽章 ↓</p>
+      <button class="tts-btn" data-tts="step10" aria-label="朗读本章要点">🔊 听讲解</button>
+      <p class="tts-text" hidden>来做个小测验，检验一下今天学得怎么样。八道题，选完立刻知道对不对。全部答完，会给你一个等级徽章。答错的题会列出来，可以回头再看一遍。</p>
     </div>
 
     <div class="quiz reveal" id="quiz">
@@ -561,9 +715,54 @@
         <p class="quiz-explain"></p>
       </div>
 
+      <div class="quiz-question" data-q="5">
+        <p class="quiz-title">5. 「庖丁解牛」里，庖丁的刀为什么用了十九年还像新磨的一样？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" data-correct="false">A. 他买的刀质量特别好</button>
+          <button class="quiz-opt" data-correct="true">B. 他顺着牛骨节间的空隙下刀，从不硬砍</button>
+          <button class="quiz-opt" data-correct="false">C. 他很少干活，刀用不坏</button>
+          <button class="quiz-opt" data-correct="false">D. 他每天认真磨刀保养</button>
+        </div>
+        <p class="quiz-explain"></p>
+      </div>
+
+      <div class="quiz-question" data-q="6">
+        <p class="quiz-title">6. 写《道德经》之前，老子是做什么的？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" data-correct="false">A. 大将军</button>
+          <button class="quiz-opt" data-correct="true">B. 周朝国家图书馆（档案馆）馆长</button>
+          <button class="quiz-opt" data-correct="false">C. 厨师</button>
+          <button class="quiz-opt" data-correct="false">D. 商人</button>
+        </div>
+        <p class="quiz-explain"></p>
+      </div>
+
+      <div class="quiz-question" data-q="7">
+        <p class="quiz-title">7. 「太上，不知有之」说的是什么？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" data-correct="false">A. 最高的山，山顶看不见</button>
+          <button class="quiz-opt" data-correct="true">B. 最好的统治者，百姓感觉不到他的存在</button>
+          <button class="quiz-opt" data-correct="false">C. 皇帝什么都不知道</button>
+          <button class="quiz-opt" data-correct="false">D. 太上老君不存在</button>
+        </div>
+        <p class="quiz-explain"></p>
+      </div>
+
+      <div class="quiz-question" data-q="8">
+        <p class="quiz-title">8. 「我无为而民自化」出自《道德经》哪一章？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" data-correct="false">A. 第 1 章</button>
+          <button class="quiz-opt" data-correct="true">B. 第 57 章</button>
+          <button class="quiz-opt" data-correct="false">C. 第 81 章</button>
+          <button class="quiz-opt" data-correct="false">D. 第 100 章</button>
+        </div>
+        <p class="quiz-explain"></p>
+      </div>
+
       <div class="quiz-result" id="quizResult">
         <p class="quiz-score" id="quizScore"></p>
         <p class="quiz-comment" id="quizComment"></p>
+        <p class="quiz-review" id="quizReview"></p>
       </div>
     </div>
   </section>
@@ -572,10 +771,10 @@
   <section class="ending" id="ending">
     <div class="ending-inner reveal">
       <svg class="taiji taiji-small" viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="50" r="50" fill="var(--paper)"/>
-        <path d="M50 0a50 50 0 0 1 0 100 25 25 0 0 1 0 -50 25 25 0 0 0 0 -50z" fill="var(--ink)"/>
-        <circle cx="50" cy="25" r="7" fill="var(--ink)"/>
-        <circle cx="50" cy="75" r="7" fill="var(--paper)"/>
+        <circle cx="50" cy="50" r="50" fill="#f6f1e3"/>
+        <path d="M50 0a50 50 0 0 1 0 100 25 25 0 0 1 0 -50 25 25 0 0 0 0 -50z" fill="#26221b"/>
+        <circle cx="50" cy="25" r="7" fill="#26221b"/>
+        <circle cx="50" cy="75" r="7" fill="#f6f1e3"/>
       </svg>
       <h2>无为，不是不做，而是不瞎做</h2>
       <p class="ending-text">看懂「无为而治」，就懂了四个字——<strong>顺其自然</strong>。</p>
