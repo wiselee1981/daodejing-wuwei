@@ -325,13 +325,19 @@
   var quizResult = $('#quizResult');
   var quizScore = $('#quizScore');
   var quizComment = $('#quizComment');
+  var quizReview = $('#quizReview');
   var answered = 0;
   var correct = 0;
+  var wrongList = [];
   var explains = {
     '1': '「无为」是不妄为、不折腾。该干的照干——大禹为了治水可挖了 13 年渠道，一点都不懒。',
     '2': '韩非子注：「烹小鲜而数挠之，则贼其泽；治大国而数变法，则民苦之」——老翻鱼，鱼就烂；老改政策，百姓就苦。',
     '3': '孟子：「禹之行水也，行其所无事也」——顺着水性给水找出路，不用蛮力跟自然硬刚。',
-    '4': '文景之治的秘诀就是「轻徭薄赋、与民休息」：田税降到三十税一，文帝十三年还全免田租，汉文帝自己连新衣服都舍不得做。'
+    '4': '文景之治的秘诀就是「轻徭薄赋、与民休息」：田税降到三十税一，文帝十三年还全免田租，汉文帝自己连新衣服都舍不得做。',
+    '5': '庖丁说：「依乎天理，批大郤，导大窾」——顺着骨节间的空隙下刀。「以无厚入有间，游刃必有余地」。',
+    '6': '《史记·老子韩非列传》：「老子者……周守藏室之史也」——相当于周朝的国家图书馆兼档案馆馆长。',
+    '7': '《道德经》第17章：「太上，不知有之……功成事遂，百姓皆谓我自然」——最好的领导，大家甚至感觉不到他在指手画脚。',
+    '8': '《道德经》第57章：「我无为，而民自化；我好静，而民自正；我无事，而民自富；我无欲，而民自朴。」'
   };
 
   quizQuestions.forEach(function (q) {
@@ -349,6 +355,7 @@
           opts.forEach(function (o) {
             if (o.dataset.correct === 'true') o.classList.add('correct');
           });
+          wrongList.push({ num: qNum, title: $('.quiz-title', q).textContent.trim() });
         }
         explain.textContent = '💡 ' + explains[qNum];
         explain.classList.add('show');
@@ -360,16 +367,198 @@
   });
 
   function showResult() {
+    var total = quizQuestions.length;
+    var pct = correct / total;
+    var badge = pct === 1 ? '🏅 得道高人' : (pct >= 0.75 ? '🎓 进士及第' : (pct >= 0.5 ? '📖 秀才' : '🌱 学徒'));
     var comment;
-    if (correct === 4) comment = '满分！你已经把「无为而治」学明白了：守规律、少折腾、该干则干。可以去给别人讲课啦 🎉';
-    else if (correct === 3) comment = '很不错！再翻一翻上面的「金句卡」，就彻底通透啦 👍';
-    else if (correct === 2) comment = '及格啦！回「烹小鲜」和「大禹治水」两节再玩一遍，秒懂 🙂';
-    else comment = '别灰心！把页面从头再玩一遍，重点看「大禹治水」和「文景之治」——傻子都能学会，你更没问题 💪';
-    quizScore.textContent = '得分：' + correct + ' / ' + quizQuestions.length;
+    if (correct === total) comment = '满分！你已经把「无为而治」学明白了：守规律、少折腾、该干则干。可以去给别人讲课啦 🎉';
+    else if (pct >= 0.75) comment = '很不错！再翻一翻上面的「金句卡」，就彻底通透啦 👍';
+    else if (pct >= 0.5) comment = '及格啦！回「烹小鲜」「庖丁解牛」和「大禹治水」三节再玩一遍，秒懂 🙂';
+    else comment = '别灰心！把页面从头再玩一遍，重点看动画演示——傻子都能学会，你更没问题 💪';
+    quizScore.textContent = badge + ' · 得分：' + correct + ' / ' + total;
     quizComment.textContent = comment;
+    if (wrongList.length) {
+      var links = wrongList.map(function (item) {
+        return '<a href="#" data-jump="' + item.num + '">第' + item.num + '题「' + item.title.slice(0, 14) + '…」</a>';
+      }).join('<br>');
+      quizReview.innerHTML = '💡 答错的题，回头再看一遍：<br>' + links;
+      $$('a[data-jump]', quizReview).forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          var qEl = document.querySelector('.quiz-question[data-q="' + a.dataset.jump + '"]');
+          if (qEl) qEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      });
+    } else {
+      quizReview.innerHTML = '';
+    }
     quizResult.classList.add('on');
     quizResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
+
+  /* ---------- 13. 深色模式 ---------- */
+  var darkToggle = $('#darkToggle');
+  var darkMedia = window.matchMedia('(prefers-color-scheme: dark)');
+  function applyDark(dark) {
+    document.body.classList.toggle('dark', dark);
+    darkToggle.textContent = dark ? '☀️' : '🌙';
+    darkToggle.title = dark ? '切换到浅色模式' : '切换到深色模式';
+  }
+  var storedDark = null;
+  try { storedDark = localStorage.getItem('tao-dark'); } catch (e) {}
+  if (storedDark === 'dark') applyDark(true);
+  else if (storedDark === 'light') applyDark(false);
+  else applyDark(darkMedia.matches);
+  darkToggle.addEventListener('click', function () {
+    var next = !document.body.classList.contains('dark');
+    applyDark(next);
+    try { localStorage.setItem('tao-dark', next ? 'dark' : 'light'); } catch (e) {}
+  });
+  darkMedia.addEventListener('change', function (e) {
+    var stored = null;
+    try { stored = localStorage.getItem('tao-dark'); } catch (err) {}
+    if (!stored) applyDark(e.matches);
+  });
+
+  /* ---------- 14. 章节朗读 ---------- */
+  var ttsBtns = $$('.tts-btn');
+  var currentUtterance = null;
+  function stopTts() {
+    if (currentUtterance && 'speechSynthesis' in window) window.speechSynthesis.cancel();
+    currentUtterance = null;
+    ttsBtns.forEach(function (b) { b.classList.remove('speaking'); b.textContent = '🔊 听讲解'; });
+  }
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.onvoiceschanged = function () {};
+    ttsBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = document.getElementById(btn.dataset.tts);
+        if (!target) return;
+        var txtEl = target.querySelector('.tts-text');
+        if (!txtEl) return;
+        if (btn.classList.contains('speaking')) { stopTts(); return; }
+        var text = txtEl.textContent.trim();
+        if (!text) return;
+        var u = new SpeechSynthesisUtterance(text);
+        u.lang = 'zh-CN';
+        u.rate = 1;
+        var voices = window.speechSynthesis.getVoices();
+        var zh = null;
+        for (var i = 0; i < voices.length; i++) {
+          if (voices[i].lang && voices[i].lang.toLowerCase().indexOf('zh') === 0) { zh = voices[i]; break; }
+        }
+        if (zh) u.voice = zh;
+        u.onend = function () { btn.classList.remove('speaking'); btn.textContent = '🔊 听讲解'; currentUtterance = null; };
+        u.onerror = function () { btn.classList.remove('speaking'); btn.textContent = '🔊 听讲解'; currentUtterance = null; };
+        stopTts();
+        currentUtterance = u;
+        btn.classList.add('speaking');
+        btn.textContent = '⏹ 停止朗读';
+        window.speechSynthesis.speak(u);
+      });
+    });
+  } else {
+    ttsBtns.forEach(function (b) { b.classList.add('off'); b.title = '当前浏览器不支持语音朗读'; });
+  }
+
+  /* ---------- 15. 庖丁解牛 ---------- */
+  var butcherStage = $('#butcherStage');
+  var knifeEl = $('.knife', butcherStage);
+  var butcherResult = $('#butcherResult');
+  var butcherFeedback = $('#butcherFeedback');
+  var btnSlice = $('#btnSlice');
+  var btnChop = $('#btnChop');
+  var btnResetButcher = $('#btnResetButcher');
+  var butcherBusy = false;
+
+  var slicePath = [[150, 60], [285, 150], [330, 210], [430, 160], [515, 195], [640, 265]];
+  var chopBase = { x: 495, y: 95 };
+
+  function setKnife(x, y, deg) {
+    knifeEl.style.transform = 'translate(' + x + 'px,' + y + 'px) rotate(' + deg + 'deg)';
+  }
+  function resetButcher() {
+    butcherBusy = false;
+    butcherStage.classList.remove('sliced', 'chopping', 'notched');
+    setKnife(150, 60, 30);
+    butcherResult.textContent = '选一种刀法试试';
+    butcherFeedback.textContent = '牛身上有天然的「纹理空隙」，骨头硬、缝隙软——看你怎么下刀。';
+  }
+  btnResetButcher.addEventListener('click', resetButcher);
+
+  function tweenKnife(points, duration, onDone) {
+    var t0 = null;
+    var segs = [];
+    var total = 0;
+    for (var i = 0; i < points.length - 1; i++) {
+      var dx = points[i + 1][0] - points[i][0];
+      var dy = points[i + 1][1] - points[i][1];
+      var len = Math.sqrt(dx * dx + dy * dy);
+      segs.push({ a: points[i], b: points[i + 1], len: len });
+      total += len;
+    }
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var el = Math.min(1, (ts - t0) / duration);
+      var d = el * total;
+      var acc = 0;
+      for (var i = 0; i < segs.length; i++) {
+        if (d <= acc + segs[i].len || i === segs.length - 1) {
+          var f = segs[i].len > 0 ? (d - acc) / segs[i].len : 0;
+          var x = segs[i].a[0] + (segs[i].b[0] - segs[i].a[0]) * f;
+          var y = segs[i].a[1] + (segs[i].b[1] - segs[i].a[1]) * f;
+          var ang = Math.atan2(segs[i].b[1] - segs[i].a[1], segs[i].b[0] - segs[i].a[0]) * 180 / Math.PI - 90;
+          setKnife(x, y, ang);
+          break;
+        }
+        acc += segs[i].len;
+      }
+      if (el < 1) requestAnimationFrame(step);
+      else if (onDone) onDone();
+    }
+    requestAnimationFrame(step);
+  }
+
+  btnSlice.addEventListener('click', function () {
+    if (butcherBusy) return;
+    resetButcher();
+    butcherBusy = true;
+    butcherResult.textContent = '顺着纹理，游刃有余……';
+    butcherFeedback.textContent = '刀刃从「空隙」里滑过去，不碰骨头……';
+    tweenKnife(slicePath, 2400, function () {
+      butcherStage.classList.add('sliced');
+      butcherResult.textContent = '砉然已解，如土委地 ✨';
+      butcherFeedback.innerHTML = '牛轻松分成几块，刀完好无损——<strong>「以无厚入有间，游刃必有余地」</strong>。这把刀用了 19 年还像新磨的。';
+      butcherBusy = false;
+    });
+  });
+
+  btnChop.addEventListener('click', function () {
+    if (butcherBusy) return;
+    resetButcher();
+    butcherBusy = true;
+    butcherStage.classList.add('chopping');
+    butcherResult.textContent = '咣！咣！咣！';
+    butcherFeedback.textContent = '跟「肯綮」（骨节）硬碰硬……';
+    var hops = 3;
+    var i = 0;
+    function hop() {
+      if (i >= hops) {
+        butcherStage.classList.remove('chopping');
+        butcherStage.classList.add('notched');
+        butcherResult.textContent = '刀卷刃了 😖';
+        butcherFeedback.innerHTML = '「族庖月更刀，折也」——普通厨子硬砍骨头，<strong>一个月就要换一把刀</strong>。力气花十倍，结果最差。';
+        butcherBusy = false;
+        return;
+      }
+      tweenKnife([[chopBase.x, chopBase.y], [chopBase.x, 185], [chopBase.x, chopBase.y]], 300, function () {
+        i++;
+        hop();
+      });
+    }
+    hop();
+  });
+  resetButcher();
 
   /* ---------- 13. 回到顶部 ---------- */
   $('#backTop').addEventListener('click', function () {
